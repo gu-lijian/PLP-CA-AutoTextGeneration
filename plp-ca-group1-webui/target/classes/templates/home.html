@@ -1,0 +1,25 @@
+<html>
+<head><title>Home Page</title></head>
+<body>
+<h1>PLP Group1 CA Web UI</h1>
+<form action="/generateTweet">
+    <label for="topic">Topic:</label>
+    <select name="topic">
+        <option value ="Vaccine">Vaccine</option>
+        <option value ="Isolation">Isolation</option>
+        <option value="Economy">Economy</option>
+    </select><br><br><br>
+    <label for="emotion">Emotion:</label>
+    <select name="emotion">
+        <option value ="Positive">Positive</option>
+        <option value ="Negative">Negative</option>
+    </select><br><br><br>
+    <label for="inputText">Your Input Text:</label>
+    <input type="text" id="inputText" name="inputText"><br><br>
+
+    <input type="submit" value="Generate Tweet">
+</form>
+
+<!--<p>Welcome to <span th:text="${appName}">Our App</span></p>-->
+</body>
+</html>
