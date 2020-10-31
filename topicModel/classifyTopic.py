@@ -18,6 +18,7 @@ import numpy as np
 from sklearn import metrics
 from sklearn import svm
 from sklearn.svm import SVC
+import sys
 
 # logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
@@ -72,10 +73,10 @@ def predictedModel(text_clf, X_test, y_test):
   print(metrics.confusion_matrix(y_test.values.astype('U'), predicted))
   # print("NB:",np.mean(predicted == y_test.values.astype('U')))
 
-twitter = loadData('topicModel/trainData/economy_new.csv', 'topicModel/trainData/quarantine_new.csv', 'topicModel/trainData/vaccine_new.csv')
-text_clf, X_test, y_test = Model(twitter)
-predictedModel(text_clf, X_test, y_test)
-#
-docs_new = ["Polio vaccines, given multiple times, can protect a child for life. Proper hygiene and sanitation"]
-predicted = text_clf.predict(docs_new)
-print(predicted)
+def MainFunction(sentence):
+  twitter = loadData('topicModel/trainData/economy_new.csv', 'topicModel/trainData/quarantine_new.csv', 'topicModel/trainData/vaccine_new.csv')
+  text_clf, X_test, y_test = Model(twitter)
+  predictedModel(text_clf, X_test, y_test)
+  docs_new = str(sentence) #["Africa’s corona response rests on two things: markets and money transfers"]
+  predicted = text_clf.predict(docs_new)
+  return predicted
